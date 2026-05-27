@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark"
-    android:orientation="vertical">
+    android:background="@color/background_dark">
 
+    <!-- 顶部状态栏 -->
     <com.carlauncher.ui.components.StatusBarView
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/status_bar_height" />
+        android:layout_height="@dimen/status_bar_height"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- 主内容区域 -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/main_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/dock_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/status_bar">
 
+        <!-- 左侧：时钟天气区 -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="4"
+            android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/padding_large">
 
@@ -27,67 +36,140 @@
                 android:id="@+id/clock_weather"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 右侧：快捷应用区 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_large">
 
             <com.carlauncher.ui.components.QuickAppsView
                 android:id="@+id/quick_apps"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_large" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_large">
-
-            <Button
-                android:id="@+id/settings_button"
-                android:layout_width="@dimen/button_min_size"
-                android:layout_height="@dimen/button_min_size"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:background="@drawable/ic_settings" />
-
-            <Button
-                android:id="@+id/car_control_button"
-                android:layout_width="@dimen/button_min_size"
-                android:layout_height="@dimen/button_min_size"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:background="@drawable/ic_car" />
-
-            <Button
-                android:id="@+id/display_control_button"
-                android:layout_width="@dimen/button_min_size"
-                android:layout_height="@dimen/button_min_size"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:background="@drawable/ic_display" />
-
-            <Button
-                android:id="@+id/floating_map_button"
-                android:layout_width="@dimen/button_min_size"
-                android:layout_height="@dimen/button_min_size"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:background="@drawable/ic_map" />
-
-            <Button
-                android:id="@+id/permission_button"
-                android:layout_width="@dimen/button_min_size"
-                android:layout_height="@dimen/button_min_size"
-                android:background="@drawable/ic_permission" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 
-    <com.carlauncher.ui.components.NavBarView
-        android:id="@+id/nav_bar"
+    <!-- 底部Dock栏 -->
+    <LinearLayout
+        android:id="@+id/dock_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_bar_height" />
+        android:layout_height="@dimen/nav_bar_height"
+        android:background="@color/nav_bar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <!-- 导航区 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_back"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_back"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_home"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_home"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_recent"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_medium"
+            app:icon="@drawable/ic_recent"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <!-- 分隔线 -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_medium"
+            android:background="@color/text_disabled" />
+
+        <!-- 功能区 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_drawer"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_apps"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_car_control"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_car"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_display"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_display"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_floating_map"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_map"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <!-- 右侧弹性空间 -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- 系统区 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_notification"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            android:layout_marginRight="@dimen/padding_small"
+            app:icon="@drawable/ic_notification"
+            app:iconSize="@dimen/button_icon_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dock_settings"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="@dimen/button_min_size"
+            android:layout_height="@dimen/button_min_size"
+            app:icon="@drawable/ic_settings"
+            app:iconSize="@dimen/button_icon_size" />
+    </LinearLayout>
+
+    <!-- 浮动内容面板 -->
     <FrameLayout
         android:id="@+id/content_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:visibility="gone">
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/dock_bar"
+        app:layout_constraintTop_toBottomOf="@id/status_bar">
 
         <com.carlauncher.ui.components.AppDrawer
             android:id="@+id/app_drawer"
@@ -110,4 +192,4 @@
             android:layout_height="match_parent" />
     </FrameLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/app_icon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/app_drawer_icon_size"
+        android:layout_height="@dimen/app_drawer_icon_size"
         android:scaleType="centerInside" />
 
     <TextView
@@ -17,10 +17,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/text_primary"
-        android:textSize="16sp"
+        android:textSize="@dimen/app_drawer_text_size"
         android:layout_marginTop="@dimen/padding_small"
         android:maxLines="1"
         android:ellipsize="end"
-        android:maxWidth="80dp" />
+        android:maxWidth="@dimen/app_drawer_icon_size" />
 
 </LinearLayout>

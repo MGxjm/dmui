@@ -23,4 +23,38 @@
     <string name="display_control_title">显示控制</string>
     <string name="permission_management">权限管理</string>
     <string name="floating_map_title">悬浮地图</string>
+
+    <!-- 应用抽屉 -->
+    <string name="search_app">搜索应用</string>
+
+    <!-- 通知 -->
+    <string name="no_notification">暂无通知</string>
+
+    <!-- 车机控制 -->
+    <string name="air_condition_control">空调控制</string>
+    <string name="ac_power">开关</string>
+    <string name="temp_up">升温</string>
+    <string name="temp_down">降温</string>
+    <string name="fan_up">风量+</string>
+    <string name="fan_down">风量-</string>
+    <string name="ac_mode">模式</string>
+    <string name="window_control">车窗控制</string>
+    <string name="window_front_up">前窗升</string>
+    <string name="window_front_down">前窗降</string>
+    <string name="window_rear_up">后窗升</string>
+    <string name="window_rear_down">后窗降</string>
+    <string name="other_control">其他控制</string>
+    <string name="sunroof_open">开天窗</string>
+    <string name="sunroof_close">关天窗</string>
+    <string name="trunk_open">开后备箱</string>
+
+    <!-- 显示控制 -->
+    <string name="screen_control">屏幕控制</string>
+    <string name="screen_off">熄屏</string>
+    <string name="screen_on">亮屏</string>
+    <string name="screen_brightness">屏幕亮度</string>
+    <string name="instrument_control">仪表控制</string>
+    <string name="instrument_brightness">仪表亮度</string>
+    <string name="project_map">投屏地图</string>
+    <string name="stop_map">停止投屏</string>
 </resources>

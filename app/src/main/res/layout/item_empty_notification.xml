@@ -2,15 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="@dimen/padding_large">
+    android:gravity="center"
+    android:padding="@dimen/padding_xlarge">
+
+    <ImageView
+        android:layout_width="@dimen/button_min_size"
+        android:layout_height="@dimen/button_min_size"
+        android:src="@drawable/ic_notification"
+        android:alpha="0.5" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notification_empty"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:text="@string/no_notification"
         android:textColor="@color/text_disabled"
-        android:textSize="18sp" />
+        android:textSize="@dimen/body_size" />
 
 </LinearLayout>

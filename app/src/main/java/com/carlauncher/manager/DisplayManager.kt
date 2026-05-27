@@ -13,12 +13,12 @@ class DisplayManager(private val context: Context) {
         private const val TAG = "DisplayManager"
     }
 
-    private val adbManager = AdbManager(context)
+    private val adbManager = AdbManagerHolder.get(context)
 
     private suspend fun executeDisplayCommand(command: String): Boolean = withContext(Dispatchers.IO) {
         try {
             Log.d(TAG, "Executing display command: $command")
-            val result = adbManager.executeAdbCommand(command)
+            val result = adbManager.executeShell(command)
             val success = !result.contains("Error") && !result.contains("Exception")
             if (!success) {
                 Log.e(TAG, "Command failed: $result")

@@ -31,8 +31,8 @@ class ClockWeatherView @JvmOverloads constructor(
         timeText = findViewById(R.id.clock_time)
         dateText = findViewById(R.id.clock_date)
         weatherIcon = findViewById(R.id.weather_icon)
-        temperatureText = findViewById(R.id.weather_temperature)
-        weatherDescText = findViewById(R.id.weather_description)
+        temperatureText = findViewById(R.id.weather_temp)
+        weatherDescText = findViewById(R.id.weather_desc)
     }
 
     fun bindTime(time: LiveData<String>, owner: LifecycleOwner) {

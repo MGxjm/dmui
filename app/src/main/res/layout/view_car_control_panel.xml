@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark_light">
+    android:background="@color/background_dark_light"
+    android:orientation="vertical"
+    android:padding="@dimen/control_panel_padding">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/padding_medium">
+        android:text="@string/car_control_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
 
-        <com.google.android.material.card.MaterialCardView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/padding_large">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_medium"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
+            android:orientation="vertical">
 
+            <!-- 空调控制 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,387 +35,187 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="空调控制"
+                    android:text="@string/air_condition_control"
                     android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
+                    android:textSize="@dimen/subtitle_size"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/ac_power_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="56dp"
-                        android:text="开关"
-                        android:textSize="18sp"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <LinearLayout
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/temp_down_button"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:text="-"
-                            android:textSize="24sp"
-                            app:strokeColor="@color/primary"
-                            app:strokeWidth="2dp" />
-
-                        <TextView
-                            android:id="@+id/temp_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="24.0°C"
-                            android:textColor="@color/text_primary"
-                            android:textSize="28sp"
-                            android:textStyle="bold"
-                            android:layout_marginHorizontal="@dimen/padding_medium" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/temp_up_button"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            android:text="+"
-                            android:textSize="24sp"
-                            app:strokeColor="@color/primary"
-                            app:strokeWidth="2dp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="@dimen/padding_medium">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/wind_down_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:text="-"
-                        android:textSize="24sp"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <TextView
-                        android:id="@+id/wind_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="风力: 3"
-                        android:textColor="@color/text_primary"
-                        android:textSize="20sp"
-                        android:layout_marginHorizontal="@dimen/padding_medium" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/wind_up_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:text="+"
-                        android:textSize="24sp"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/padding_medium">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mode_auto_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:text="自动"
-                        android:textSize="16sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/ac_power" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mode_cool_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/temp_up_button"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="制冷"
-                        android:textSize="16sp"
-                        android:layout_marginHorizontal="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:layout_marginRight="@dimen/padding_small"
+                        android:text="@string/temp_up" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mode_heat_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/temp_down_button"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="制热"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/temp_down" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/fan_up_button"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/control_button_height"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/padding_small"
+                        android:text="@string/fan_up" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/fan_down_button"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/control_button_height"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/padding_small"
+                        android:text="@string/fan_down" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/ac_mode_button"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/control_button_height"
+                        android:layout_weight="1"
+                        android:text="@string/ac_mode" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_medium"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
-
+            <!-- 车窗控制 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/control_section_spacing"
                 android:orientation="vertical"
                 android:padding="@dimen/padding_medium">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="车窗控制"
+                    android:text="@string/window_control"
                     android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
+                    android:textSize="@dimen/subtitle_size"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_medium"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_fl_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/window_front_up"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="前左"
-                        android:textSize="16sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/window_front_up" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_fr_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/window_front_down"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="前右"
-                        android:textSize="16sp"
-                        android:layout_marginHorizontal="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_rl_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        android:text="后左"
-                        android:textSize="16sp"
-                        android:layout_marginHorizontal="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_rr_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        android:text="后右"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/padding_medium">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_all_up_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:text="全部升起"
-                        android:textSize="16sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/window_front_down" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/window_all_down_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/window_rear_up"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="全部降下"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:layout_marginRight="@dimen/padding_small"
+                        android:text="@string/window_rear_up" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/window_rear_down"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/control_button_height"
+                        android:layout_weight="1"
+                        android:text="@string/window_rear_down" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_medium"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
-
+            <!-- 天窗/后备箱 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/control_section_spacing"
                 android:orientation="vertical"
                 android:padding="@dimen/padding_medium">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="天窗控制"
+                    android:text="@string/other_control"
                     android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
+                    android:textSize="@dimen/subtitle_size"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_medium"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sunroof_open_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/sunroof_open"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="打开天窗"
-                        android:textSize="16sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/sunroof_open" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sunroof_close_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/sunroof_close"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="关闭天窗"
-                        android:textSize="16sp"
-                        android:layout_marginHorizontal="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:layout_marginRight="@dimen/padding_small"
+                        android:text="@string/sunroof_close" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sunshade_open_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:id="@+id/trunk_open"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="打开遮阳帘"
-                        android:textSize="16sp"
-                        android:layout_marginHorizontal="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sunshade_close_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:text="关闭遮阳帘"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/trunk_open" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="后备箱控制"
-                    android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/trunk_open_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        android:text="打开后备箱"
-                        android:textSize="18sp"
-                        android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/trunk_close_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        android:text="关闭后备箱"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

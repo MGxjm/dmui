@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.widget.*
 import com.carlauncher.R
 import com.carlauncher.manager.DisplayManager
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.slider.Slider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,14 +21,14 @@ class DisplayControlPanel @JvmOverloads constructor(
     private val displayManager = DisplayManager(context)
     private val scope = CoroutineScope(Dispatchers.Main)
     
-    private lateinit var screenOffButton: Button
-    private lateinit var screenOnButton: Button
+    private lateinit var screenOffButton: MaterialButton
+    private lateinit var screenOnButton: MaterialButton
     private lateinit var screenBrightnessSlider: Slider
     private lateinit var screenBrightnessText: TextView
     private lateinit var instrumentBrightnessSlider: Slider
     private lateinit var instrumentBrightnessText: TextView
-    private lateinit var projectMapButton: Button
-    private lateinit var stopMapButton: Button
+    private lateinit var projectMapButton: MaterialButton
+    private lateinit var stopMapButton: MaterialButton
     
     init {
         LayoutInflater.from(context).inflate(R.layout.view_display_control_panel, this, true)

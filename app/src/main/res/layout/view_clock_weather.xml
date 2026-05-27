@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="@dimen/padding_large">
 
     <TextView
@@ -12,30 +12,29 @@
         android:layout_height="wrap_content"
         android:text="12:00"
         android:textColor="@color/text_primary"
-        android:textSize="96sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-light" />
+        android:textSize="@dimen/clock_size"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/clock_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/status_bar_date"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="2024年1月1日 星期一"
         android:textColor="@color/text_secondary"
-        android:textSize="20sp"
-        android:layout_marginTop="@dimen/padding_small" />
+        android:textSize="@dimen/date_size" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_medium"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:layout_marginTop="@dimen/padding_large"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/weather_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/weather_size"
+            android:layout_height="@dimen/weather_size"
             android:src="@drawable/ic_weather_sunny" />
 
         <LinearLayout
@@ -45,21 +44,21 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/weather_temperature"
+                android:id="@+id/weather_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="26°C"
                 android:textColor="@color/text_primary"
-                android:textSize="32sp"
+                android:textSize="@dimen/weather_size"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/weather_description"
+                android:id="@+id/weather_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="晴天"
                 android:textColor="@color/text_secondary"
-                android:textSize="18sp" />
+                android:textSize="@dimen/weather_desc_size" />
         </LinearLayout>
     </LinearLayout>
 

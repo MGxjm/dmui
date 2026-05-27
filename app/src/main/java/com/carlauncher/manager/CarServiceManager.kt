@@ -15,12 +15,12 @@ class CarServiceManager(private val context: Context) {
         private const val TAG = "CarServiceManager"
     }
 
-    private val adbManager = AdbManager(context)
+    private val adbManager = AdbManagerHolder.get(context)
 
     private suspend fun executeCarCommand(command: String): Boolean = withContext(Dispatchers.IO) {
         try {
             Log.d(TAG, "Executing car command: $command")
-            val result = adbManager.executeAdbCommand(command)
+            val result = adbManager.executeShell(command)
             val success = !result.contains("Error") && !result.contains("Exception")
             if (!success) {
                 Log.e(TAG, "Command failed: $result")

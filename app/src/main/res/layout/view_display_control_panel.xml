@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_dark_light">
+    android:background="@color/background_dark_light"
+    android:orientation="vertical"
+    android:padding="@dimen/control_panel_padding">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/padding_medium">
+        android:text="@string/display_control_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
 
-        <com.google.android.material.card.MaterialCardView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/padding_large">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_medium"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
+            android:orientation="vertical">
 
+            <!-- 屏幕控制 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,64 +36,58 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="屏幕控制"
+                    android:text="@string/screen_control"
                     android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
+                    android:textSize="@dimen/subtitle_size"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/padding_medium">
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/screen_off_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="熄灭屏幕"
-                        android:textSize="18sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/screen_off" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/screen_on_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="唤醒屏幕"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/screen_on" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="屏幕亮度"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="@dimen/padding_small" />
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:text="@string/screen_brightness"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/body_size" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <com.google.android.material.slider.Slider
                         android:id="@+id/screen_brightness_seekbar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="100"
-                        android:progress="80"
+                        android:valueFrom="0"
+                        android:valueTo="100"
+                        android:value="80"
                         app:trackColor="@color/text_disabled"
                         app:trackColorActive="@color/primary"
                         app:thumbColor="@color/primary" />
@@ -93,57 +96,52 @@
                         android:id="@+id/screen_brightness_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_medium"
                         android:text="80%"
                         android:textColor="@color/text_primary"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="@dimen/padding_medium" />
+                        android:textSize="@dimen/body_size" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_medium"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
-
+            <!-- 仪表控制 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/control_section_spacing"
                 android:orientation="vertical"
                 android:padding="@dimen/padding_medium">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="仪表控制"
+                    android:text="@string/instrument_control"
                     android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
+                    android:textSize="@dimen/subtitle_size"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="仪表亮度"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="@dimen/padding_small" />
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:text="@string/instrument_brightness"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/body_size" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <com.google.android.material.slider.Slider
                         android:id="@+id/instrument_brightness_seekbar"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="100"
-                        android:progress="60"
+                        android:valueFrom="0"
+                        android:valueTo="100"
+                        android:value="60"
                         app:trackColor="@color/text_disabled"
                         app:trackColorActive="@color/primary"
                         app:thumbColor="@color/primary" />
@@ -152,65 +150,37 @@
                         android:id="@+id/instrument_brightness_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_medium"
                         android:text="60%"
                         android:textColor="@color/text_primary"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="@dimen/padding_medium" />
+                        android:textSize="@dimen/body_size" />
                 </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/padding_medium">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="地图投屏"
-                    android:textColor="@color/text_primary"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_medium" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_medium"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/project_map_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="投屏到仪表"
-                        android:textSize="18sp"
                         android:layout_marginRight="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/project_map" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/stop_map_button"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="56dp"
+                        android:layout_height="@dimen/control_button_height"
                         android:layout_weight="1"
-                        android:text="停止投屏"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="@dimen/padding_small"
-                        app:strokeColor="@color/primary"
-                        app:strokeWidth="2dp" />
+                        android:text="@string/stop_map" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

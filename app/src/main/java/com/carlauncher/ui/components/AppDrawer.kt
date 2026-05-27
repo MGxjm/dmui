@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.carlauncher.R
 import com.carlauncher.data.model.AppInfo
 import com.carlauncher.ui.adapter.AppGridAdapter
+import com.google.android.material.button.MaterialButton
 
 class AppDrawer @JvmOverloads constructor(
     context: Context,
@@ -20,7 +21,7 @@ class AppDrawer @JvmOverloads constructor(
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private lateinit var searchView: SearchView
-    private lateinit var sortButton: Button
+    private lateinit var sortButton: MaterialButton
     private lateinit var closeButton: ImageView
     private lateinit var appRecyclerView: RecyclerView
     
@@ -41,7 +42,9 @@ class AppDrawer @JvmOverloads constructor(
         sortButton = findViewById(R.id.drawer_sort)
         closeButton = findViewById(R.id.drawer_close)
         appRecyclerView = findViewById(R.id.drawer_recycler)
-        appRecyclerView.layoutManager = GridLayoutManager(context, 4)
+        // 根据屏幕尺寸自动适配列数
+        val columns = context.resources.getInteger(R.integer.app_drawer_grid_columns)
+        appRecyclerView.layoutManager = GridLayoutManager(context, columns)
     }
 
     private fun setupClickListeners() {

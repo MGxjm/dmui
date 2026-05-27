@@ -3,10 +3,10 @@ package com.carlauncher.ui.components
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.RelativeLayout
 import com.carlauncher.R
 import com.carlauncher.utils.setVisibility
+import com.google.android.material.button.MaterialButton
 
 class NavBarView @JvmOverloads constructor(
     context: Context,
@@ -14,10 +14,10 @@ class NavBarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
-    private lateinit var backButton: Button
-    private lateinit var homeButton: Button
-    private lateinit var recentButton: Button
-    private lateinit var drawerButton: Button
+    private lateinit var backButton: MaterialButton
+    private lateinit var homeButton: MaterialButton
+    private lateinit var recentButton: MaterialButton
+    private lateinit var drawerButton: MaterialButton
 
     var onBackClick: (() -> Unit)? = null
     var onHomeClick: (() -> Unit)? = null
@@ -31,10 +31,10 @@ class NavBarView @JvmOverloads constructor(
     }
 
     private fun initViews() {
-        backButton = findViewById(R.id.nav_bar_back)
-        homeButton = findViewById(R.id.nav_bar_home)
-        recentButton = findViewById(R.id.nav_bar_recent)
-        drawerButton = findViewById(R.id.nav_bar_drawer)
+        backButton = findViewById(R.id.nav_back)
+        homeButton = findViewById(R.id.nav_home)
+        recentButton = findViewById(R.id.nav_recent)
+        drawerButton = findViewById(R.id.nav_drawer)
     }
 
     private fun setupClickListeners() {

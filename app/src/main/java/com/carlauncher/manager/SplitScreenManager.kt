@@ -11,7 +11,7 @@ class SplitScreenManager(private val context: Context) {
         private const val TAG = "SplitScreenManager"
     }
 
-    private val adbManager = AdbManager(context)
+    private val adbManager = AdbManagerHolder.get(context)
 
     enum class SplitMode {
         LEFT_RIGHT, TOP_BOTTOM, FREE
@@ -36,7 +36,7 @@ class SplitScreenManager(private val context: Context) {
             
             var success = true
             for (cmd in commands) {
-                val result = adbManager.executeAdbCommand(cmd)
+                val result = adbManager.executeShell(cmd)
                 if (result.contains("Error")) {
                     Log.e(TAG, "Failed to execute: $cmd, result: $result")
                     success = false
@@ -52,7 +52,7 @@ class SplitScreenManager(private val context: Context) {
     suspend fun exitSplitScreen(): Boolean = withContext(Dispatchers.IO) {
         try {
             Log.d(TAG, "Exiting split screen")
-            val result = adbManager.executeAdbCommand("am broadcast -a android.intent.action.SPLIT_SCREEN_EXIT")
+            val result = adbManager.executeShell("am broadcast -a android.intent.action.SPLIT_SCREEN_EXIT")
             !result.contains("Error")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to exit split screen", e)
