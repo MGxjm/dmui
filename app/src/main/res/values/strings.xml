@@ -18,4 +18,9 @@
     <string name="settings_save">保存</string>
     <string name="quick_apps">快捷应用</string>
     <string name="clock_weather">时钟天气</string>
+    <string name="accessibility_service_description">车载桌面无障碍服务，用于系统级交互控制</string>
+    <string name="car_control_title">车机控制</string>
+    <string name="display_control_title">显示控制</string>
+    <string name="permission_management">权限管理</string>
+    <string name="floating_map_title">悬浮地图</string>
 </resources>

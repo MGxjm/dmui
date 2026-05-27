@@ -3,11 +3,10 @@ package com.carlauncher.ui.components
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.ImageView
+import android.widget.Button
 import android.widget.RelativeLayout
-import androidx.core.content.ContextCompat
 import com.carlauncher.R
-import com.carlauncher.utils.visible
+import com.carlauncher.utils.setVisibility
 
 class NavBarView @JvmOverloads constructor(
     context: Context,
@@ -15,10 +14,10 @@ class NavBarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
-    private lateinit var backButton: ImageView
-    private lateinit var homeButton: ImageView
-    private lateinit var recentButton: ImageView
-    private lateinit var drawerButton: ImageView
+    private lateinit var backButton: Button
+    private lateinit var homeButton: Button
+    private lateinit var recentButton: Button
+    private lateinit var drawerButton: Button
 
     var onBackClick: (() -> Unit)? = null
     var onHomeClick: (() -> Unit)? = null
@@ -46,18 +45,18 @@ class NavBarView @JvmOverloads constructor(
     }
 
     fun setBackButtonVisibility(visible: Boolean) {
-        backButton.visible(visible)
+        backButton.setVisibility(visible)
     }
 
     fun setHomeButtonVisibility(visible: Boolean) {
-        homeButton.visible(visible)
+        homeButton.setVisibility(visible)
     }
 
     fun setRecentButtonVisibility(visible: Boolean) {
-        recentButton.visible(visible)
+        recentButton.setVisibility(visible)
     }
 
     fun setDrawerButtonVisibility(visible: Boolean) {
-        drawerButton.visible(visible)
+        drawerButton.setVisibility(visible)
     }
 }

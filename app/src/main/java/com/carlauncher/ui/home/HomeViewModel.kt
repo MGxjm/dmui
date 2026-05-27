@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
-import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,6 +12,9 @@ import androidx.lifecycle.viewModelScope
 import com.carlauncher.data.AppRepository
 import com.carlauncher.data.model.AppInfo
 import com.carlauncher.data.model.NotificationInfo
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -48,6 +50,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     
     private val _isNotificationPanelOpen = MutableLiveData(false)
     val isNotificationPanelOpen: LiveData<Boolean> = _isNotificationPanelOpen
+
+    private var clockJob: Job? = null
 
     init {
         loadApps()
@@ -114,15 +118,16 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val month = (calendar.get(Calendar.MONTH) + 1).toString().padStart(2, '0')
         val day = calendar.get(Calendar.DAY_OF_MONTH).toString().padStart(2, '0')
         val weekDay = weekDays[calendar.get(Calendar.DAY_OF_WEEK) - 1]
-        _currentDate.value = "${calendar.get(Calendar.YEAR)}年$month月$day日 $weekDay"
+        _currentDate.value = calendar.get(Calendar.YEAR).toString() + "年" + month + "月" + day + "日 " + weekDay
     }
 
     private fun startClockUpdater() {
-        Timer().scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
+        clockJob = viewModelScope.launch {
+            while (isActive) {
                 updateTime()
+                delay(1000)
             }
-        }, 0, 1000)
+        }
     }
 
     fun updateBatteryLevel(context: Context) {
@@ -142,5 +147,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun updateBluetoothStatus(context: Context) {
         _isBluetoothConnected.value = true
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        clockJob?.cancel()
     }
 }

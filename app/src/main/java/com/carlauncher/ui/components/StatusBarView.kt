@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import com.carlauncher.R
-import com.carlauncher.utils.visible
+import com.carlauncher.utils.setVisibility
 
 class StatusBarView @JvmOverloads constructor(
     context: Context,
@@ -62,13 +62,13 @@ class StatusBarView @JvmOverloads constructor(
 
     fun bindWifiConnected(isConnected: LiveData<Boolean>, owner: LifecycleOwner) {
         isConnected.observe(owner) {
-            wifiIcon.visible(it)
+            wifiIcon.setVisibility(it)
         }
     }
 
     fun bindBluetoothConnected(isConnected: LiveData<Boolean>, owner: LifecycleOwner) {
         isConnected.observe(owner) {
-            bluetoothIcon.visible(it)
+            bluetoothIcon.setVisibility(it)
         }
     }
 }

@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="status_bar_height">56dp</dimen>
+    <dimen name="nav_bar_height">72dp</dimen>
+    <dimen name="nav_bar_icon_height">56dp</dimen>
+    <dimen name="clock_size">112sp</dimen>
+    <dimen name="date_size">22sp</dimen>
+    <dimen name="quick_app_icon_size">72dp</dimen>
+    <dimen name="quick_app_text_size">15sp</dimen>
+    <dimen name="grid_spacing">14dp</dimen>
+    <dimen name="card_radius">14dp</dimen>
+    <dimen name="button_min_size">44dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">14dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+</resources>

@@ -20,6 +20,10 @@ fun View.gone() {
     visibility = View.GONE
 }
 
+fun View.setVisibility(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
+}
+
 fun Context.getColorCompat(@ColorRes colorRes: Int): Int {
     return ContextCompat.getColor(this, colorRes)
 }

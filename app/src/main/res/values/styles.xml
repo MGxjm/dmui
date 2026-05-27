@@ -13,26 +13,27 @@
     <style name="Theme.CarLauncher.Fullscreen" parent="Theme.CarLauncher">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 
-    <style name="TextAppearance.Clock" parent="android:TextAppearance.Material.Display1">
+    <style name="TextAppearance.Clock" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:textSize">@dimen/clock_size</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
-    <style name="TextAppearance.Date" parent="android:TextAppearance.Material.Subhead">
+    <style name="TextAppearance.Date" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textSize">@dimen/date_size</item>
         <item name="android:textColor">@color/text_secondary</item>
     </style>
 
-    <style name="Widget.Card" parent="android:Widget.Material.CardView">
-        <item name="android:background">@color/background_card</item>
-        <item name="android:elevation">8dp</item>
-        <item name="android:radius">@dimen/card_radius</item>
+    <style name="CarLauncherCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
     </style>
 
-    <style name="Widget.NavButton">
+    <style name="CarLauncherNavButton">
         <item name="android:minWidth">@dimen/button_min_size</item>
         <item name="android:minHeight">@dimen/button_min_size</item>
         <item name="android:padding">@dimen/padding_small</item>

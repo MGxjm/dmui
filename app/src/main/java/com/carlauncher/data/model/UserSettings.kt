@@ -12,5 +12,8 @@ enum class Theme : Parcelable {
 data class UserSettings(
     val theme: Theme = Theme.DARK,
     val wallpaperUri: String? = null,
-    val favoriteApps: List<String> = emptyList()
+    val favoriteApps: List<String> = emptyList(),
+    val adbEnabled: Boolean = false,
+    val accessibilityEnabled: Boolean = false,
+    val floatingWindowEnabled: Boolean = false
 ) : Parcelable
