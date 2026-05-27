@@ -1,0 +1,27 @@
+<resources>
+    <color name="primary">#1E88E5</color>
+    <color name="primary_light">#42A5F5</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="accent">#FFC107</color>
+    
+    <color name="background_dark">#1A1A1A</color>
+    <color name="background_dark_light">#242424</color>
+    <color name="background_card">#2D2D2D</color>
+    
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_disabled">#606060</color>
+    
+    <color name="status_bar_bg">#0D0D0D</color>
+    <color name="nav_bar_bg">#1A1A1A</color>
+    
+    <color name="battery_low">#FF5252</color>
+    <color name="battery_medium">#FFC107</color>
+    <color name="battery_high">#4CAF50</color>
+    <color name="battery_full">#8BC34A</color>
+    
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+</resources>

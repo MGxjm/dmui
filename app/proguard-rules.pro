@@ -1,0 +1,4 @@
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class com.carlauncher.data.model.** { *; }
+-dontwarn kotlinx.coroutines.**

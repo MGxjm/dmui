@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Car Launcher</string>
+    <string name="status_bar_time">12:00</string>
+    <string name="status_bar_date">2024年01月01日 周一</string>
+    <string name="nav_bar_back">返回</string>
+    <string name="nav_bar_home">主页</string>
+    <string name="nav_bar_recent">最近任务</string>
+    <string name="nav_bar_drawer">应用抽屉</string>
+    <string name="drawer_sort_name">按名称</string>
+    <string name="drawer_sort_usage">按使用</string>
+    <string name="notification_title">通知</string>
+    <string name="notification_empty">暂无通知</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_theme">主题设置</string>
+    <string name="settings_theme_light">白天模式</string>
+    <string name="settings_theme_dark">黑夜模式</string>
+    <string name="settings_theme_auto">自动模式</string>
+    <string name="settings_save">保存</string>
+    <string name="quick_apps">快捷应用</string>
+    <string name="clock_weather">时钟天气</string>
+</resources>
